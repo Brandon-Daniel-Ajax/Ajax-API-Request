@@ -10,19 +10,28 @@
             cnt: 3
         }).done(function (data) {
             console.log(data);
+            var icon =  data.list[0].weather[0].icon;
+            var url = "http://openweathermap.org/img/w/" + icon + ".png";
+            var img = "<img src='" + url + "'>";
             var html1 = "";
-            html1 += "<h2>" + Math.round(data.list[0].main.temp_max) + "/" + Math.round(data.list[0].main.temp_min) + "&#8457;</h2>" +
-                "<p><strong>" + data.list[0].weather[0].main + ": </strong>" + data.list[0].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[0].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[0].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[0].main.pressure + "</p>";
+            html1 += "<h2>" + Math.round(data.list[0].main.temp_max) + "/" + Math.round(data.list[0].main.temp_min) + "&#8457;</h2><span>" + img +
+                "</span><p><strong>" + data.list[0].weather[0].main + ": </strong>" + data.list[0].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[0].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[0].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[0].main.pressure + "</p>";
             $("#div1").append(html1);
 
+            var icon1 =  data.list[1].weather[0].icon;
+            var url1 = "http://openweathermap.org/img/w/" + icon1 + ".png";
+            var img1 = "<img src='" + url1 + "'>";
             var html2 = "";
-            html2 += "<h2>" + Math.round(data.list[1].main.temp_max) + "/" + Math.round(data.list[1].main.temp_min) + "&#8457;</h2>" +
-                "<p><strong>" + data.list[1].weather[0].main + ": </strong>" + data.list[1].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[1].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[1].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[1].main.pressure + "</p>";
+            html2 += "<h2>" + Math.round(data.list[1].main.temp_max) + "/" + Math.round(data.list[1].main.temp_min) + "&#8457;</h2><span>" + img1 +
+                "</span><p><strong>" + data.list[1].weather[0].main + ": </strong>" + data.list[1].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[1].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[1].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[1].main.pressure + "</p>";
             $("#div2").append(html2);
 
+            var icon2 =  data.list[2].weather[0].icon;
+            var url2 = "http://openweathermap.org/img/w/" + icon2 + ".png";
+            var img2 = "<img src='" + url2 + "'>";
             var html3 = "";
-            html3 += "<h2>" + Math.round(data.list[2].main.temp_max) + "/" + Math.round(data.list[2].main.temp_min) + "&#8457;</h2>" +
-                "<p><strong>" + data.list[2].weather[0].main + ": </strong>" + data.list[2].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[2].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[2].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[2].main.pressure + "</p>";
+            html3 += "<h2>" + Math.round(data.list[2].main.temp_max) + "/" + Math.round(data.list[2].main.temp_min) + "&#8457;</h2><span>" + img2 +
+                "</span><p><strong>" + data.list[2].weather[0].main + ": </strong>" + data.list[2].weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + data.list[2].main.humidity + "</p><p><strong>" + "Wind: </strong>" + data.list[2].wind.speed + "</p><p><strong>" + "Pressure: </strong>" + data.list[2].main.pressure + "</p>";
             $("#div3").append(html3);
         });
     });
