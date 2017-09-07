@@ -1,12 +1,14 @@
 (function () {
     "use strict";
     $(document).ready(function () {
-
-        $("#geoSubmit").click(function () {
-            $("#forecasts").empty();
-            $("#coordinatesCity").empty();
-            getCoordinates();
-        });
+        function setListeners() {
+            $("#geoSubmit").on("click", function () {
+                $("#forecasts").empty();
+                $("#coordinatesCity").empty();
+                $("#geoSubmit").off("click");
+                getCoordinates();
+            });
+        }
 
         var latitude = $("#lat");
         var longitude = $("#lon");
@@ -43,9 +45,12 @@
                     html += "<h2>" + Math.round(day.main.temp_max) + "°/" + Math.round(day.main.temp_min) + "°</h2><span>" + img +
                         "</span><p><strong>" + day.weather[0].main + ": </strong>" + day.weather[0].description + "</p><p><strong>" + "Humidity: </strong>" + day.main.humidity + "</p><p><strong>" + "Wind: </strong>" + day.wind.speed + "</p><p><strong>" + "Pressure: </strong>" + day.main.pressure + "</p></div>";
                     $("#forecasts").append(html);
-                })
+                });
+                setListeners();
             });
         }
+
+        getWeather(29.4241, -98.4936);
     })
 })();
 
