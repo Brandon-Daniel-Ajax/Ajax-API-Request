@@ -1,7 +1,12 @@
 #container {
-    background-color: lightblue;
+    background-color: #abdcfd;
 }
 
 .row {
-    margin: 10px;
+    margin: 5px;
+}
+.weatherInfo {
+    text-align: center;
+    background-color: #f2f2f2;
+    border: 1px solid gray;
 }
