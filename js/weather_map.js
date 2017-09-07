@@ -3,8 +3,8 @@
     $(document).ready(function () {
 
         $("#geoSubmit").click(function () {
-           $("#forecasts").empty();
-           $("#coordinatesCity").empty();
+            $("#forecasts").empty();
+            $("#coordinatesCity").empty();
             getCoordinates();
         });
 
@@ -12,7 +12,7 @@
         var longitude = $("#lon");
 
         function getCoordinates() {
-            if (latitude.val() !=="" && longitude.val() !== "") {
+            if (latitude.val() !== "" && longitude.val() !== "") {
                 var lat = $("#lat").val();
                 var lon = $("#lon").val();
                 getWeather(lat, lon)
@@ -22,16 +22,16 @@
         }
 
         function getWeather(lat, lon) {
-            $.get('http://api.openweathermap.org/data/2.5/weather', {
-                APPID: "1d9259fc21b4fb3a6976934537609e66",
-                lat: lat,
-                lon: lon
-            }).done(function (data) {
-                var city = data.name;
-                var html = "";
-                html += "<h2>" + city + "</h2>";
-                $("#coordinatesCity").append(html);
-            });
+            // $.get('http://api.openweathermap.org/data/2.5/weather', {
+            //     APPID: "1d9259fc21b4fb3a6976934537609e66",
+            //     lat: lat,
+            //     lon: lon
+            // }).done(function (data) {
+            //     var city = data.name;
+            //     var html = "";
+            //     html += "<h2>" + city + "</h2>";
+            //     $("#coordinatesCity").append(html);
+            // });
             $.get('http://api.openweathermap.org/data/2.5/forecast', {
                 APPID: "1d9259fc21b4fb3a6976934537609e66",
                 lat: lat,
@@ -39,6 +39,11 @@
                 units: "imperial",
                 cnt: 3
             }).done(function (data) {
+                console.log(data);
+                var city = data.city.name;
+                var cityHtml = "";
+                cityHtml += "<h2>" + city + "</h2>";
+                $("#coordinatesCity").append(cityHtml);
                 data.list.forEach(function (day) {
                     var icon = day.weather[0].icon;
                     var url = "http://openweathermap.org/img/w/" + icon + ".png";
