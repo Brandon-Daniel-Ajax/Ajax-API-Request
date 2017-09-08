@@ -2,6 +2,11 @@
     background-color: #abdcfd;
 }
 
+#mapCanvas {
+    width: 100%;
+    height: 481px;
+}
+
 .row {
     margin: 5px;
 }
